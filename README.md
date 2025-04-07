@@ -119,27 +119,6 @@ Each file is embedded with user or device-specific data, allowing access only to
 
 ---
 
-## 📦 Dependencies
-
-<details>
-<summary>Click to expand</summary>
-
-```bash
-Flask
-Pillow
-numpy
-scikit-learn
-joblib
-keras
-tensorflow
-stegano
-pymongo
-Flask-Login
-Flask-Cors
-python-dotenv
-
----
-
 ## 🔮 Future Scope
 
 1. **Device-Level Locking**  
@@ -183,6 +162,27 @@ We plan to integrate an LLM-powered chatbot into the platform to assist with:
 ✅ Perfect for **enterprise clients**, **security analysts**, and **forensics teams** looking to enforce adaptive policies.
 
 ---
+
+
+## 📦 Dependencies
+
+<details>
+<summary>Click to expand</summary>
+
+```bash
+Flask
+Pillow
+numpy
+scikit-learn
+joblib
+keras
+tensorflow
+stegano
+pymongo
+Flask-Login
+Flask-Cors
+python-dotenv
+
 
 
 
