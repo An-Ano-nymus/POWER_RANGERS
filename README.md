@@ -138,4 +138,52 @@ Flask-Login
 Flask-Cors
 python-dotenv
 
+---
+
+## 🔮 Future Scope
+
+1. **Device-Level Locking**  
+   Bind image access to device fingerprints or MAC addresses. Ensures only specific machines can decode or view sensitive files.
+
+2. **Time-Based Access Control**  
+   Auto-expire access after a set time window (e.g., 24 hours after download link is generated).
+
+3. **IP Whitelisting**  
+   Restrict file access to predefined IP ranges (great for enterprise/internal networks).
+
+4. **Cryptographic Enhancement**  
+   Integrate AES encryption in addition to steganography for dual-layer security.
+
+5. **Blockchain Audit Trails**  
+   Maintain tamper-proof logs of image modifications, access attempts, and transmission.
+
+6. **Watermarking + Steganography**  
+   Combine visible and invisible markings to prevent both unauthorized use and tampering.
+
+---
+
+## 🤖 LLM (Large Language Model) Integration
+
+We plan to integrate an LLM-powered chatbot into the platform to assist with:
+
+1. **User Queries**  
+   - "Why was my file blocked?"  
+   - "How can I securely send this image?"
+
+2. **Forensic & Security Insights**  
+   - "This image was modified twice and attempted to be accessed by an unauthorized system."  
+   - "Tampering suspected. Recommend isolating source device."
+
+3. **Dynamic Policy Generation**  
+   - “For healthcare images, only allow access from these 3 IPs and auto-delete after 24 hours.”
+
+4. **Security Recommendations**  
+   - Based on image metadata and usage patterns, recommend firewall rules or access restrictions.
+
+✅ Perfect for **enterprise clients**, **security analysts**, and **forensics teams** looking to enforce adaptive policies.
+
+---
+
+
+
 
