@@ -58,3 +58,84 @@ Each file is embedded with user or device-specific data, allowing access only to
 ├── whataspp-image-sender backend/   
 ├── whataspp-image-sender-frontend/   
 
+
+---
+
+## 🔄 Project Workflow
+
+1. User logs in using email/password.
+2. Uploads an image to check for malware.
+3. Image is scanned using the AI model.
+4. If clean, allowed emails are embedded via steganography.
+5. The image is sent for download or to the recipient.
+6. When the recipient logs in and accesses the file:
+   - Email is verified.
+   - If valid, the image is decoded.
+   - If invalid, the image is corrupted or self-destructs.
+
+---
+
+## 🔐 Authentication Flow
+
+- User credentials are stored securely in MongoDB.
+- Login form collects and verifies credentials.
+- Session or token management protects access to routes.
+- Email is associated with uploaded and encoded files.
+- Each image has a list of allowed emails stored in MongoDB.
+
+---
+
+## 🖼️ Steganography Logic
+
+- `stegano_utils.py` handles embedding and extraction.
+- Uses **Least Significant Bit (LSB)** technique.
+- Hides allowed email(s) inside the image's pixels.
+- Does **not use** cryptography (just hiding, not encrypting).
+- Secure by limiting access at decoding based on verified email.
+
+---
+
+## 🧠 Malware Detection Flow
+
+- ResNet50 pre-trained model is used for feature extraction.
+- Extracted features are passed to a soft voting ensemble model:
+  - SVM (linear kernel)
+  - Random Forest (n=100)
+  - Logistic Regression
+- Predicts one of the 25 malware classes from **Malimg dataset**.
+- If confidence < threshold (e.g., 60%), returns "No Malware".
+
+---
+
+## ⚙️ Backend Route Summary (Flask)
+
+| Endpoint          | Method | Description                              |
+|-------------------|--------|------------------------------------------|
+| `/`               | GET    | Login form                               |
+| `/login`          | POST   | Validates user login                     |
+| `/upload`         | POST   | Uploads image, runs malware detection    |
+| `/encode`         | POST   | Steganographically embeds email          |
+| `/decode`         | POST   | Decodes image if email is authorized     |
+
+---
+
+## 📦 Dependencies
+
+<details>
+<summary>Click to expand</summary>
+
+```bash
+Flask
+Pillow
+numpy
+scikit-learn
+joblib
+keras
+tensorflow
+stegano
+pymongo
+Flask-Login
+Flask-Cors
+python-dotenv
+
+
